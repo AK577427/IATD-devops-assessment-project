@@ -91,18 +91,39 @@ test("isValidDateString: invalid string", () => {
   });
 
   ///// PUT YOUR TESTS FOR generateFlightId HERE /////
+  //Test the first two characters of the ID should be the first two letters of the airline name provided
+  test("generateFlightId: first two letters of airline", () => {
+    expect(generateFlightId("Qantas").substring(0, 2)).toBe("QA"); //Qantas starts with Q and A
+    expect(generateFlightId("Jetstar").substring(0, 2)).toBe("JE"); //Jetstar starts with J and E
+    expect(generateFlightId("Virgin").substring(0, 2)).toBe("VI"); //Virgin starts with V and I
+  });
+
 
   // Test uppercase
   test("generateFlightId: is uppercase", () => {
     expect(generateFlightId("Qantas").substring(0, 2)).toBe("QA");
+    expect(generateFlightId("Qantas").substring(0,2)).toMatch(/^[A-Z]{2}/); // Check if the first two characters are uppercase letters
+    expect(generateFlightId("Jetstar").substring(0, 2)).toMatch(/^[A-Z]{2}/); // Check if the first two characters are uppercase letters
+    expect(generateFlightId("Virgin").substring(0, 2)).toMatch(/^[A-Z]{2}/); // Check if the first two characters are uppercase letters
+  });
+
+  // Test for length
+  test("generateFlightId: length is 5", () => {
+    expect(generateFlightId("Qantas").length).toBe(5);
+    expect(generateFlightId("Jetstar").length).toBe(5);
+    expect(generateFlightId("Virgin").length).toBe(5);
   });
 
   // Test for blank string
   test("generateFlightId: blank string", () => {
     expect(generateFlightId("")).toBe(undefined);
+    expect(generateFlightId(" ")).toBe(undefined); //single space
+    expect(generateFlightId("\n\t")).toBe(undefined);// next line and tab characters
   });
 
   // Test for string of whitespace
   test("generateFlightId: whitespace string", () => {
     expect(generateFlightId("   \n")).toBe(undefined);
+    expect(generateFlightId("  ")).toBe(undefined);
+    //expect(generateFlightId("A")).toBe(undefined);
   });
