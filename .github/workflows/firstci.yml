@@ -41,13 +41,10 @@ jobs:
       - name: Set up Docker Buildx
         uses : docker/setup-buildx-action@v3
       
-      - name: Docker push
-        uses : docker/build-push-action@v5
-
       - name: Build and push Docker image
         uses: docker/build-push-action@v5
         with:
           context: .
           file: ./Dockerfiles/test.Dockerfile
           push: true
-          tags: ${{secrets.DOCKERHUB_USERNAME}}/kittur-anupama-intro-to-devops-a2:latest
+          tags: ${{secrets.DOCKERHUB_USERNAME}}/kittur-anupama-intro-to-devops-a2:test-latest
