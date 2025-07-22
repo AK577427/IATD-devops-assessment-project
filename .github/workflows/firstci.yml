@@ -56,3 +56,4 @@ jobs:
           file: ./Dockerfiles/test.Dockerfile
           push: true
           tags: ${{secrets.DOCKERHUB_USERNAME}}/kittur-anupama-intro-to-devops-a2:user-latest
+          no-cache: true
