@@ -24,5 +24,9 @@ commit 2 - updated steps to build and deploy user-latest image and exclude test 
 updated Dockerfile to exclude test folder and craete user-latest docker image using user.Dockerfile.
 created docker image - kittur-anupama-intro-to-devops-a2:user-latest@sha256:e52f21b362ea23c31cff341489893344aed030b57a8558bc820434c47ab1fe30
 
+Task 4 - Resubmitted
+commit - reverted user.Dockerfile and edited yml file to build test-latest doc… #14
+Reverted the chnages to user.Dockerfile. Updated yml file to build test-latest docker image using test.dockerfile
+
 Github repo for assessment project - https://github.com/AK577427/IATD-devops-assessment-project.git 
 Docker hub repo for test-latest & user-latest images - https://hub.docker.com/r/ak577427/kittur-anupama-intro-to-devops-a2/tags
